@@ -3,8 +3,8 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon ECR....
-      - aws --version      
-      - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 186191766068.dkr.ecr.sa-east-1.amazonaws.com     
+      - aws --version   
+      - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 186191766068.dkr.ecr.sa-east-1.amazonaws.com
       - REPOSITORY_URI=186191766068.dkr.ecr.sa-east-1.amazonaws.com/spring-demo-ecr
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
@@ -30,4 +30,4 @@ phases:
 artifacts:
   files:
     - imagedefinitions.json
-    - target/springboot-aws-deploy.jar
+    - target/springboot-aws-deploy-service.jar

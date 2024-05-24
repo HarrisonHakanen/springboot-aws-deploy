@@ -12,4 +12,9 @@ public class TestController {
 	public String getData() {
 		return "First message AWS";
 	}
+	
+	@GetMapping("/test2")
+	public String test2() {
+		return "First message AWS";
+	}
 }
